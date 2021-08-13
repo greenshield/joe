@@ -6,11 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import { Router } from 'react-router-dom'
 import {createBrowserHistory} from 'history'
 export const history = createBrowserHistory()
+import { Provider } from 'react-redux'
+import rootReducer from './reducers'
 
 ReactDOM.render(
   
   <Router history={history}>
+	<Provider store={rootReducer}>
 		<App />	
+	</Provider>
 	</Router>,
   document.getElementById('root')
 );
