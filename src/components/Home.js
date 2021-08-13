@@ -5,7 +5,6 @@ function Home(props) {
 
 <br />
     <Link to="/about">About</Link>
-
     </div>
    
 }
