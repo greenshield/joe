@@ -3,3 +3,4 @@ dump/
 package.json
 package-lock.json
 yarn.lock
+process.json
