@@ -4,6 +4,10 @@ import Loading from './Loading'
 import { Link } from 'react-router-dom'
 import { Button } from '@material-ui/core'
 import { history } from "../index"
+import FAQ from "./FAQ"
+import { setUser, setTemp } from "../actions";
+import { setStatus } from "../actions/status";
+import { connect } from "react-redux";
 
 function Summary(props) {
 
@@ -60,10 +64,36 @@ console.log(props.user)
 
       <hr />
 
+<FAQ />
+
+<hr />
+status is {props.status}
+<hr />
+
       <Button component={Link} to="/profile">Back to List</Button>
+
+      
 
     </React.Fragment>
   );
 }
 
-export default Summary;
+
+const mapStateToProps = (state) => ({
+	redux_user: state.user,
+	temp: state.temp,
+	status: state.status,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	setUser: (user) => dispatch(setUser(user)),
+	setTemp: (temp) => dispatch(setTemp(temp)),
+	setStatus: (status) => dispatch(setStatus(status)),
+	changeTemp: (callback, temp) => {
+		dispatch((dispatch) => {
+			callback(dispatch(setTemp(temp)).temp, true);
+		});
+	},
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Summary);

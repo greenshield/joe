@@ -5,9 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Router } from 'react-router-dom'
 import {createBrowserHistory} from 'history'
-export const history = createBrowserHistory()
 import { Provider } from 'react-redux'
 import rootReducer from './reducers'
+
+export const history = createBrowserHistory()
 
 ReactDOM.render(
   

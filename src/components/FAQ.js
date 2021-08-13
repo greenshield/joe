@@ -1,17 +1,24 @@
 import React from "react";
-import { setUser, setStatus, setTemp } from "../../actions";
+import { setUser, setTemp } from "../actions";
+import { setStatus } from "../actions/status";
 import { connect } from "react-redux";
+import { Button } from '@material-ui/core'
 
 function FAQ(props) {
 	return (
 		<React.Fragment>
-			<div>FAQ here</div>
+			<div>FAQ here {props.status}</div>
+			<Button onClick={()=>{
+
+				props.setStatus('active')
+
+			}}>Change Status</Button>
 		</React.Fragment>
 	);
 }
 
 const mapStateToProps = (state) => ({
-	user: state.auth,
+	user: state.user,
 	temp: state.temp,
 	status: state.status,
 });
