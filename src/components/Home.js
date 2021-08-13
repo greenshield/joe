@@ -4,6 +4,7 @@ function Home(props) {
     return <div>I am home
 
 <br />
+
     <Link to="/about">About</Link>
     </div>
    
